@@ -3,7 +3,7 @@ import java.awt.*;
 public class Ellipse extends Figure{
 
 
-    private int semiAxysX;
+    protected int semiAxysX;
 
     public void setSemiAxysX(int semiAxysX) {
         this.semiAxysX = semiAxysX;
@@ -13,7 +13,7 @@ public class Ellipse extends Figure{
         this.semiAxysY = semiAxysY;
     }
 
-    private int semiAxysY;
+    protected int semiAxysY;
 
     public void setBoundingBox(int heightBB, int widthBB){
         this.setSemiAxysX(heightBB);

@@ -10,13 +10,20 @@ public class Rectangle extends Figure{
         this.width = width;
     }
 
-    private int length;
+    protected int length;
 
-    private int width;
+    protected int width;
 
     public void setBoundingBox(int heightBB, int widthBB){
         this.setLength(heightBB);
         this.setWidth(widthBB);
+    }
+
+    public Rectangle (){
+        this.point=new Point();
+        this.color=Color.white;
+        this.length=0;
+        this.width=0;
     }
 
     public Rectangle (int px, int py, Color c){
