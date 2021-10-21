@@ -30,4 +30,18 @@ public class Ellipse extends Figure{
     public void draw (Graphics g){
 
     }
+
+    @Override
+    public String toString() {
+        return "Cette ellipse est de couleur " + this.getC() + " avec comme origine " + this.point + " de demiaxeX " + this.semiAxysY + " et de demiaxeY " + this.semiAxysY;
+    }
+
+    public static void main(String[] args){
+        Ellipse a=null;
+        a=new Ellipse(4,3,Color.white);
+        System.out.println(a.toString());
+        a.setBoundingBox(2,1);
+        System.out.println(a.toString());
+
+    }
 }

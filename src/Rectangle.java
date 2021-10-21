@@ -30,4 +30,18 @@ public class Rectangle extends Figure{
         
     }
 
+    @Override
+    public String toString() {
+        return "Ce rectangle est de couleur " + this.getC() + " avec comme origine " + this.point + " de largeur " + this.width + " et de longueur " + this.length;
+    }
+
+    public static void main(String[] args){
+        Rectangle a=null;
+        a=new Rectangle(1,2,Color.white);
+        System.out.println(a.toString());
+        a.setBoundingBox(3,4);
+        System.out.println(a.toString());
+
+    }
+
 }
