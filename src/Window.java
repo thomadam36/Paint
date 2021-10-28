@@ -20,25 +20,39 @@ public class Window extends JFrame{
         JMenuBar m= new JMenuBar();
 
         JMenu menu1= new JMenu("File");
+        JMenuItem new1= new JMenuItem("New");
+        menu1.add(new1);
         JMenuItem open= new JMenuItem("Open");
         menu1.add(open);
+        JMenuItem save= new JMenuItem("Save");
+        menu1.add(save);
+        JMenuItem quit= new JMenuItem("Quit");
+        menu1.add(quit);
         m.add(menu1);
 
         JButton Button1= new JButton("Noir");
+        Button1.setBackground(Color.black);
         southwestPanel.add(Button1);
         JButton Button2= new JButton("Jaune");
+        Button2.setBackground(Color.yellow);
         southwestPanel.add(Button2);
         JButton Button3= new JButton("Rouge");
+        Button3.setBackground(Color.red);
         southwestPanel.add(Button3);
         JButton Button4= new JButton("Rose");
+        Button4.setBackground(Color.pink);
         southwestPanel.add(Button4);
         JButton Button5= new JButton("Vert");
+        Button5.setBackground(Color.green);
         southwestPanel.add(Button5);
         JButton Button6= new JButton("Magenta");
+        Button6.setBackground(Color.magenta);
         southwestPanel.add(Button6);
         JButton Button7= new JButton("Bleu");
+        Button7.setBackground(Color.blue);
         southwestPanel.add(Button7);
         JButton Button8= new JButton("Orange");
+        Button8.setBackground(Color.orange);
         southwestPanel.add(Button8);
         southPanel.add(southwestPanel);
 
@@ -53,6 +67,8 @@ public class Window extends JFrame{
         southPanel.add(southeastPanel);
 
         contentPanel.add(southPanel,"South");
+
+        contentPanel.add(m,"North");
 
         this.setVisible(true);
     }
