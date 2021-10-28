@@ -27,6 +27,13 @@ public class Ellipse extends Figure{
         this.semiAxysY=0;
     }
 
+    public Ellipse (){
+        this.point=new Point();
+        this.color=Color.white;
+        this.semiAxysX=0;
+        this.semiAxysY=0;
+    }
+
     public void draw (Graphics g){
 
     }

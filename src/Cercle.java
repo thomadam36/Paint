@@ -1,30 +1,30 @@
 import java.awt.*;
 
-public class Carre extends Rectangle{
+public class Cercle extends Ellipse {
 
     @Override
-    public void setBoundingBox(int heightBB,int widthBB) {
-        this.setLength(heightBB);
-        this.setWidth(heightBB);
+    public void setBoundingBox(int heightBB, int widthBB) {
+        this.setSemiAxysX(heightBB);
+        this.setSemiAxysY(heightBB);
     }
 
-    public Carre (){
+    public Cercle (){
         this.point=new Point();
         this.color=Color.white;
-        this.length=0;
-        this.width=0;
+        this.semiAxysX=0;
+        this.semiAxysY=0;
     }
 
-    public Carre (int px, int py, Color c){
+    public Cercle (int px, int py, Color c){
         this.point=new Point(px,py);
         this.color=c;
-        this.length=0;
-        this.width=0;
+        this.semiAxysX=0;
+        this.semiAxysY=0;
     }
 
     public static void main(String[] args){
-        Carre a=null;
-        a=new Carre(1,2,Color.white);
+        Cercle a=null;
+        a=new Cercle(1,2,Color.white);
         System.out.println(a.toString());
         a.setBoundingBox(3,0);
         System.out.println(a.toString());
