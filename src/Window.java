@@ -1,7 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Window extends JFrame{
+public class Window extends JFrame implements ActionListener {
+
+    JButton ButtonNoir,ButtonJaune,ButtonRouge,ButtonRose,ButtonVert,ButtonMagenta,ButtonBleu,ButtonOrange;
+    JButton ButtonEllipse,ButtonRectangle,ButtonSquare,ButtonCircle;
+    JMenuBar m;
+    JMenu menu;
+    JMenuItem new1,open,save,quit,about;
+    JOptionPane info;
 
     public Window (String Title,int x, int y){
         super(Title);
@@ -17,60 +26,146 @@ public class Window extends JFrame{
         JPanel southeastPanel = new JPanel();
         southeastPanel.setLayout(new GridLayout(2,2));
 
-        JMenuBar m= new JMenuBar();
+        m= new JMenuBar();
 
-        JMenu menu1= new JMenu("File");
-        JMenuItem new1= new JMenuItem("New");
-        menu1.add(new1);
-        JMenuItem open= new JMenuItem("Open");
-        menu1.add(open);
-        JMenuItem save= new JMenuItem("Save");
-        menu1.add(save);
-        JMenuItem quit= new JMenuItem("Quit");
-        menu1.add(quit);
-        m.add(menu1);
+        menu= new JMenu("File");
+        new1= new JMenuItem("New");
+        menu.add(new1);
+        new1.addActionListener(this);
+        open= new JMenuItem("Open");
+        menu.add(open);
+        open.addActionListener(this);
+        save= new JMenuItem("Save");
+        menu.add(save);
+        save.addActionListener(this);
+        quit= new JMenuItem("Quit");
+        menu.add(quit);
+        quit.addActionListener(this);
+        about=new JMenuItem("About");
+        menu.add(about);
+        about.addActionListener(this);
+        m.add(menu);
 
-        JButton Button1= new JButton("Noir");
-        Button1.setBackground(Color.black);
-        southwestPanel.add(Button1);
-        JButton Button2= new JButton("Jaune");
-        Button2.setBackground(Color.yellow);
-        southwestPanel.add(Button2);
-        JButton Button3= new JButton("Rouge");
-        Button3.setBackground(Color.red);
-        southwestPanel.add(Button3);
-        JButton Button4= new JButton("Rose");
-        Button4.setBackground(Color.pink);
-        southwestPanel.add(Button4);
-        JButton Button5= new JButton("Vert");
-        Button5.setBackground(Color.green);
-        southwestPanel.add(Button5);
-        JButton Button6= new JButton("Magenta");
-        Button6.setBackground(Color.magenta);
-        southwestPanel.add(Button6);
-        JButton Button7= new JButton("Bleu");
-        Button7.setBackground(Color.blue);
-        southwestPanel.add(Button7);
-        JButton Button8= new JButton("Orange");
-        Button8.setBackground(Color.orange);
-        southwestPanel.add(Button8);
+        ButtonNoir= new JButton("Noir");
+        ButtonNoir.setBackground(Color.black);
+        southwestPanel.add(ButtonNoir);
+        ButtonNoir.addActionListener(this);
+        ButtonJaune= new JButton("Jaune");
+        ButtonJaune.setBackground(Color.yellow);
+        southwestPanel.add(ButtonJaune);
+        ButtonJaune.addActionListener(this);
+        ButtonRouge= new JButton("Rouge");
+        ButtonRouge.setBackground(Color.red);
+        southwestPanel.add(ButtonRouge);
+        ButtonRouge.addActionListener(this);
+        ButtonRose= new JButton("Rose");
+        ButtonRose.setBackground(Color.pink);
+        southwestPanel.add(ButtonRose);
+        ButtonRose.addActionListener(this);
+        ButtonVert= new JButton("Vert");
+        ButtonVert.setBackground(Color.green);
+        southwestPanel.add(ButtonVert);
+        ButtonVert.addActionListener(this);
+        ButtonMagenta= new JButton("Magenta");
+        ButtonMagenta.setBackground(Color.magenta);
+        southwestPanel.add(ButtonMagenta);
+        ButtonMagenta.addActionListener(this);
+        ButtonBleu= new JButton("Bleu");
+        ButtonBleu.setBackground(Color.blue);
+        southwestPanel.add(ButtonBleu);
+        ButtonBleu.addActionListener(this);
+        ButtonOrange= new JButton("Orange");
+        ButtonOrange.setBackground(Color.orange);
+        southwestPanel.add(ButtonOrange);
+        ButtonOrange.addActionListener(this);
         southPanel.add(southwestPanel);
 
-        JButton Button9=new JButton("Ellipse");
-        southeastPanel.add(Button9);
-        JButton Button10=new JButton("Rectangle");
-        southeastPanel.add(Button10);
-        JButton Button11=new JButton("Cercle");
-        southeastPanel.add(Button11);
-        JButton Button12=new JButton("Carre");
-        southeastPanel.add(Button12);
+
+        ButtonEllipse=new JButton("Ellipse");
+        southeastPanel.add(ButtonEllipse);
+        ButtonEllipse.addActionListener(this);
+        ButtonRectangle=new JButton("Rectangle");
+        southeastPanel.add(ButtonRectangle);
+        ButtonRectangle.addActionListener(this);
+        ButtonCircle=new JButton("Circle");
+        southeastPanel.add(ButtonCircle);
+        ButtonCircle.addActionListener(this);
+        ButtonSquare=new JButton("Square");
+        southeastPanel.add(ButtonSquare);
+        ButtonSquare.addActionListener(this);
         southPanel.add(southeastPanel);
 
         contentPanel.add(southPanel,"South");
 
         contentPanel.add(m,"North");
 
+        info=new JOptionPane();
+
         this.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed (ActionEvent e){
+        String cmd=e.getActionCommand();
+
+        switch (cmd){
+            case "Noir":
+                System.out.println("Color is black");
+                Drawing.setC(Color.black);
+                break;
+            case "Jaune":
+                System.out.println("Color is yellow");
+                Drawing.setC(Color.yellow);
+                break;
+            case "Rouge":
+                System.out.println("Color is red");
+                Drawing.setC(Color.red);
+                break;
+            case "Rose":
+                System.out.println("Color is pink");
+                Drawing.setC(Color.pink);
+                break;
+            case "Vert":
+                System.out.println("Color is green");
+                Drawing.setC(Color.green);
+                break;
+            case "Magenta":
+                System.out.println("Color is magenta");
+                Drawing.setC(Color.magenta);
+                break;
+            case "Bleu":
+                System.out.println("Color is blue");
+                Drawing.setC(Color.blue);
+                break;
+            case "Orange":
+                System.out.println("Color is orange");
+                Drawing.setC(Color.orange);
+                break;
+
+
+            case "Ellipse":
+                System.out.println("Select ellipse");
+                Drawing.setNameFigure("Ellipse");
+                break;
+            case "Rectangle":
+                System.out.println("Select rectangle");
+                Drawing.setNameFigure("Rectangle");
+                break;
+            case "Circle":
+                System.out.println("Select circle");
+                Drawing.setNameFigure("Circle");
+                break;
+            case "Square":
+                System.out.println("Select Square");
+                Drawing.setNameFigure("Square");
+                break;
+
+            case "Quit":
+                System.exit(1);
+                break;
+            case "About":
+                info.showInternalMessageDialog(info,"Author: Thomas ADAM","Information",JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     public static void main (String args []){

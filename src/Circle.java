@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Cercle extends Ellipse {
+public class Circle extends Ellipse {
 
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
@@ -8,14 +8,14 @@ public class Cercle extends Ellipse {
         this.setSemiAxysY(heightBB);
     }
 
-    public Cercle (){
+    public Circle (){
         this.point=new Point();
         this.color=Color.white;
         this.semiAxysX=0;
         this.semiAxysY=0;
     }
 
-    public Cercle (int px, int py, Color c){
+    public Circle (int px, int py, Color c){
         this.point=new Point(px,py);
         this.color=c;
         this.semiAxysX=0;
@@ -23,12 +23,14 @@ public class Cercle extends Ellipse {
     }
 
     public static void main(String[] args){
-        Cercle a=null;
-        a=new Cercle(1,2,Color.white);
+        Circle a=null,b=null;
+        a=new Circle(1,2,Color.white);
+        b=new Circle();
         System.out.println(a.toString());
+        System.out.println(b.toString());
         a.setBoundingBox(3,0);
         System.out.println(a.toString());
-        a.setBoundingBox(3,4);
+        a.setBoundingBox(4,3);
         System.out.println(a.toString());
     }
 }
