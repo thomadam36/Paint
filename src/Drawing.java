@@ -67,4 +67,11 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     public void mouseMoved(MouseEvent e) {
 
     }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+    }
+
+
 }
