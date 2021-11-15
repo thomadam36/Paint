@@ -17,6 +17,7 @@ public class Window extends JFrame implements ActionListener {
         this.setSize(x,y);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setContentPane(new Drawing());
 
         Container contentPanel= this.getContentPane();
         JPanel southPanel = new JPanel();

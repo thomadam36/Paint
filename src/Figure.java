@@ -30,7 +30,7 @@ public abstract class Figure {
 
     @Override
     public String toString() {
-        return "La figure est "+this.color+" avec comme origine : "+this.point;
+        return "La figure est "+color+" avec comme origine : "+this.point;
     }
 }
 

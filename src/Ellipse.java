@@ -35,7 +35,8 @@ public class Ellipse extends Figure{
     }
 
     public void draw (Graphics g){
-
+        g.setColor(this.getC());
+        g.fillOval(this.getPoint().getX(),this.getPoint().getY(),this.semiAxysX,this.semiAxysY);
     }
 
     @Override

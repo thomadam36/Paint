@@ -10,6 +10,14 @@ public class Rectangle extends Figure{
         this.width = width;
     }
 
+    public int getLength() {
+        return length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
     protected int length;
 
     protected int width;
@@ -34,7 +42,8 @@ public class Rectangle extends Figure{
     }
 
     public void draw (Graphics g){
-        
+        g.setColor(this.getC());
+        g.fillRect(this.getPoint().getX(),this.getPoint().getY(),this.getLength(),this.getWidth());
     }
 
     @Override
