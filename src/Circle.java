@@ -4,8 +4,13 @@ public class Circle extends Ellipse {
 
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
-        this.setSemiAxysX(heightBB);
-        this.setSemiAxysY(heightBB);
+        if (heightBB<widthBB){
+            this.setSemiAxysX(heightBB);
+            this.setSemiAxysY(heightBB);}
+        else{
+            this.setSemiAxysX(widthBB);
+            this.setSemiAxysY(widthBB);
+        }
     }
 
     public Circle (){

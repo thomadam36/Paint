@@ -4,8 +4,13 @@ public class Square extends Rectangle{
 
     @Override
     public void setBoundingBox(int heightBB,int widthBB) {
-        this.setLength(heightBB);
-        this.setWidth(heightBB);
+        if (heightBB<widthBB){
+            this.setLength(heightBB);
+            this.setWidth(heightBB);}
+        else {
+            this.setLength(widthBB);
+            this.setWidth(widthBB);
+        }
     }
 
     public Square (){
