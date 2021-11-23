@@ -11,13 +11,14 @@ public class Window extends JFrame implements ActionListener {
     JMenu menu;
     JMenuItem new1,open,save,quit,about;
     JOptionPane info;
+    Drawing d=new Drawing();
 
     public Window (String Title,int x, int y){
         super(Title);
         this.setSize(x,y);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.add(new Drawing());
+        this.add(d);
 
         Container contentPanel= this.getContentPane();
         JPanel southPanel = new JPanel();
@@ -112,60 +113,69 @@ public class Window extends JFrame implements ActionListener {
         switch (cmd){
             case "Noir":
                 System.out.println("Color is black");
-                Drawing.setC(Color.black);
+                d.setC(Color.black);
                 break;
             case "Jaune":
                 System.out.println("Color is yellow");
-                Drawing.setC(Color.yellow);
+                d.setC(Color.yellow);
                 break;
             case "Rouge":
                 System.out.println("Color is red");
-                Drawing.setC(Color.red);
+                d.setC(Color.red);
                 break;
             case "Rose":
                 System.out.println("Color is pink");
-                Drawing.setC(Color.pink);
+                d.setC(Color.pink);
                 break;
             case "Vert":
                 System.out.println("Color is green");
-                Drawing.setC(Color.green);
+                d.setC(Color.green);
                 break;
             case "Magenta":
                 System.out.println("Color is magenta");
-                Drawing.setC(Color.magenta);
+                d.setC(Color.magenta);
                 break;
             case "Bleu":
                 System.out.println("Color is blue");
-                Drawing.setC(Color.blue);
+                d.setC(Color.blue);
                 break;
             case "Orange":
                 System.out.println("Color is orange");
-                Drawing.setC(Color.orange);
+                d.setC(Color.orange);
                 break;
 
 
             case "Ellipse":
                 System.out.println("Select ellipse");
-                Drawing.setNameFigure("Ellipse");
+                d.setNameFigure("Ellipse");
                 break;
             case "Rectangle":
                 System.out.println("Select rectangle");
-                Drawing.setNameFigure("Rectangle");
+                d.setNameFigure("Rectangle");
                 break;
             case "Circle":
                 System.out.println("Select circle");
-                Drawing.setNameFigure("Circle");
+                d.setNameFigure("Circle");
                 break;
             case "Square":
                 System.out.println("Select Square");
-                Drawing.setNameFigure("Square");
+                d.setNameFigure("Square");
                 break;
 
+            case "New":
+                System.out.println("Nouvelle fenêtre");
+                d.reset();
+                break;
+            case "Save":
+                d.saveDrawing();
+                System.out.println("Fichier enregisté");
+                break;
             case "Quit":
                 System.exit(1);
                 break;
             case "About":
                 info.showInternalMessageDialog(info,"Author: Thomas ADAM","Information",JOptionPane.INFORMATION_MESSAGE);
+                break;
         }
     }
 

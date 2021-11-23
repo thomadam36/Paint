@@ -3,13 +3,15 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class Drawing extends JPanel implements MouseListener, MouseMotionListener {
 
-    private static Color c;
-    private static ArrayList<Figure> list;
-    private static String nameFigure;
+    private Color c;
+    private ArrayList<Figure> list;
+    private String nameFigure;
     private int x;
     private int y;
 
@@ -17,12 +19,12 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         return list;
     }
 
-    public static void setC(Color color) {
-        c = color;
+    public void setC(Color color) {
+        this.c = color;
     }
 
-    public static void setNameFigure(String n) {
-        nameFigure = n;
+    public void setNameFigure(String n) {
+        this.nameFigure = n;
     }
 
     public Drawing() {
@@ -36,7 +38,7 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        this.repaint();
     }
 
     @Override
@@ -129,12 +131,29 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for(Figure f:list){
+        for(Figure f : this.list){
             f.draw(g);
         }
     }
 
     public void reset(){
-        this.list=null;
+        this.list=new ArrayList<>();
+        this.repaint();
+    }
+
+    public void saveDrawing(){
+        try{
+            FileOutputStream fos = new FileOutputStream("monDessin");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+
+            oos.writeInt(this.list.size());
+            for(Figure f : this.list){
+                oos.writeObject(f);
+            }
+            oos.close();
+        }
+        catch (Exception e){
+            System.out.println("Erreur");
+        }
     }
 }
