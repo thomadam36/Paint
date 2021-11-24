@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class Drawing extends JPanel implements MouseListener, MouseMotionListener {
 
+    // Variables et leur getter et setter
+
     private Color c;
     private ArrayList<Figure> list;
     private String nameFigure;
@@ -27,6 +29,8 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         this.nameFigure = n;
     }
 
+    // Constructeur de Drawing
+
     public Drawing() {
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -38,8 +42,10 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        this.repaint();
+
     }
+
+    // Création d'une figure en appuyant sur l'écran en fixant son origine
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -77,6 +83,8 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
     public void mouseExited(MouseEvent e) {
 
     }
+
+    //  Le fait de garder la souris enfoncée permet d'étirer la figure en la réactualisant à chaque fois
 
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -128,6 +136,8 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
 
     }
 
+    // Parcours la liste de figure pour les redessiner
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -136,10 +146,14 @@ public class Drawing extends JPanel implements MouseListener, MouseMotionListene
         }
     }
 
+    // Permet de reset le dessin
+
     public void reset(){
         this.list=new ArrayList<>();
         this.repaint();
     }
+
+    // Enregistre la liste de figures
 
     public void saveDrawing(){
         try{

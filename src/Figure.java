@@ -2,6 +2,8 @@ import java.awt.*;
 
 public abstract class Figure {
 
+    // Variables et leur getter
+
     public Color getC() {
         return color;
     }
@@ -14,6 +16,8 @@ public abstract class Figure {
 
     protected Point point;
 
+    // Constructeurs de Figure
+
     public Figure(){
         this.point= new Point();
         this.color= Color.white;
@@ -24,9 +28,17 @@ public abstract class Figure {
         this.color= color;
     }
 
+    // Défintion des fonctions abstractes
+
     public abstract void setBoundingBox(int heightBB, int widthBB);
 
     public abstract void draw (Graphics g);
+
+    public abstract float getPerimeter();
+
+    public abstract float getSurface();
+
+    // Affichage
 
     @Override
     public String toString() {

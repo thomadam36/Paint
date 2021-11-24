@@ -2,6 +2,8 @@ import java.awt.*;
 
 public class Rectangle extends Figure{
 
+    // Variables et leur getter et setter
+
     public void setLength(int length) {
         this.length = length;
     }
@@ -22,10 +24,14 @@ public class Rectangle extends Figure{
 
     protected int width;
 
+    // Définiton des dimensions du rectangle
+
     public void setBoundingBox(int heightBB, int widthBB){
         this.setLength(heightBB);
         this.setWidth(widthBB);
     }
+
+    // Constructeurs de Rectangle
 
     public Rectangle (){
         this.point=new Point();
@@ -41,14 +47,28 @@ public class Rectangle extends Figure{
         this.width=0;
     }
 
+    // Définition de Draw pour Rectangle
+
     public void draw (Graphics g){
         g.setColor(this.getC());
         g.fillRect(this.getPoint().getX(),this.getPoint().getY(),this.getLength(),this.getWidth());
     }
 
+    // Affichage
+
     @Override
     public String toString() {
         return "Ce rectangle est de couleur " + this.getC() + " avec comme origine " + this.point + " de largeur " + this.width + " et de longueur " + this.length;
+    }
+
+    // Définition du périmètre et de l'aire
+
+    public float getPerimeter(){
+        return 2*this.getLength()+2*this.getWidth();
+    }
+
+    public float getSurface(){
+       return this.getLength()*this.getWidth();
     }
 
     public static void main(String[] args){

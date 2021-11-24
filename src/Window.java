@@ -3,7 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+// Cette classe va gérer l'affichage de la fenêtre du paint et l'intéraction avec Drawing pour les boutons
+
 public class Window extends JFrame implements ActionListener {
+
+    // Variables
 
     JButton ButtonNoir,ButtonJaune,ButtonRouge,ButtonRose,ButtonVert,ButtonMagenta,ButtonBleu,ButtonOrange;
     JButton ButtonEllipse,ButtonRectangle,ButtonSquare,ButtonCircle;
@@ -13,12 +17,19 @@ public class Window extends JFrame implements ActionListener {
     JOptionPane info;
     Drawing d=new Drawing();
 
+    // Affichage de la fenêtre
+
     public Window (String Title,int x, int y){
+
+        // Nom, taille et intégration de Drawing pour rendre visible la fenêtre et pour pouvoir la fermer
+
         super(Title);
         this.setSize(x,y);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.add(d);
+
+        // Division de la barre en bas de la fenêtre
 
         Container contentPanel= this.getContentPane();
         JPanel southPanel = new JPanel();
@@ -27,6 +38,8 @@ public class Window extends JFrame implements ActionListener {
         southwestPanel.setLayout(new GridLayout(2,4));
         JPanel southeastPanel = new JPanel();
         southeastPanel.setLayout(new GridLayout(2,2));
+
+        // Affichage de la barre de menu
 
         m= new JMenuBar();
 
@@ -47,6 +60,10 @@ public class Window extends JFrame implements ActionListener {
         menu.add(about);
         about.addActionListener(this);
         m.add(menu);
+
+        // Affichage des boutons en bas
+
+        // Les couleurs
 
         ButtonNoir= new JButton("Noir");
         ButtonNoir.setBackground(Color.black);
@@ -82,6 +99,7 @@ public class Window extends JFrame implements ActionListener {
         ButtonOrange.addActionListener(this);
         southPanel.add(southwestPanel);
 
+        // Les formes
 
         ButtonEllipse=new JButton("Ellipse");
         southeastPanel.add(ButtonEllipse);
@@ -106,11 +124,16 @@ public class Window extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
+    // Définition des interruptions avec l'appui sur le bouton
+
     @Override
     public void actionPerformed (ActionEvent e){
         String cmd=e.getActionCommand();
 
         switch (cmd){
+
+            // Appui des couleurs sur les boutons définit la couleur de la figure sur Drawing
+
             case "Noir":
                 System.out.println("Color is black");
                 d.setC(Color.black);
@@ -144,6 +167,7 @@ public class Window extends JFrame implements ActionListener {
                 d.setC(Color.orange);
                 break;
 
+            // Appui des formes sur les boutons définit la fomre de la figure sur Drawing
 
             case "Ellipse":
                 System.out.println("Select ellipse");
@@ -162,17 +186,28 @@ public class Window extends JFrame implements ActionListener {
                 d.setNameFigure("Square");
                 break;
 
+            // New permet de reset la liste de figure dans drawing
+
             case "New":
                 System.out.println("Nouvelle fenêtre");
                 d.reset();
                 break;
+
+            // Save permet de sauvegarder la liste de figure dans un fichier
+
             case "Save":
                 d.saveDrawing();
                 System.out.println("Fichier enregisté");
                 break;
+
+            // Quit permet aussi de quitter le paint
+
             case "Quit":
                 System.exit(1);
                 break;
+
+            // About donne des infos sur le paint
+
             case "About":
                 info.showInternalMessageDialog(info,"Author: Thomas ADAM","Information",JOptionPane.INFORMATION_MESSAGE);
                 break;

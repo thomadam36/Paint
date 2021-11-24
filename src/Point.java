@@ -1,4 +1,7 @@
 public class Point {
+
+    // Variables et leur getter et setter
+
     public int getX() {
         return x;
     }
@@ -18,6 +21,8 @@ public class Point {
     private int x;
     private int y;
 
+    // Constructeurs de Point
+
     public Point(){
         this.setX(0);
         this.setY(0);
@@ -27,6 +32,8 @@ public class Point {
         this.setX(a);
         this.setY(b);
     }
+
+    // Affichage
 
     @Override
     public String toString() {

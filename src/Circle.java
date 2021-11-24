@@ -2,6 +2,8 @@ import java.awt.*;
 
 public class Circle extends Ellipse {
 
+    // Redéfinition des dimensions pour le cercle
+
     @Override
     public void setBoundingBox(int heightBB, int widthBB) {
         if (heightBB<widthBB){
@@ -12,6 +14,8 @@ public class Circle extends Ellipse {
             this.setSemiAxysY(widthBB);
         }
     }
+
+    // Constructeurs de Circle
 
     public Circle (){
         this.point=new Point();

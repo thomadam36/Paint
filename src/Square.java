@@ -2,6 +2,8 @@ import java.awt.*;
 
 public class Square extends Rectangle{
 
+    // Redéfinition des dimensions pour le carré
+
     @Override
     public void setBoundingBox(int heightBB,int widthBB) {
         if (heightBB<widthBB){
@@ -12,6 +14,8 @@ public class Square extends Rectangle{
             this.setWidth(widthBB);
         }
     }
+
+    // Constructeurs de Square
 
     public Square (){
         this.point=new Point();
